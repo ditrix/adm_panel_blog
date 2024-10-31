@@ -24,8 +24,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 
-Route::group(['middleware' => ['role:admin']], function () {
-    Route::get('/test', function () {
-        return view('test');
-    });
+Route::middleware(['role:admin'])->prefix('adm')->group( function () {
+    Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index']);
 });
