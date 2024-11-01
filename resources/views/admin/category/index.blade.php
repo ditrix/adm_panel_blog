@@ -8,7 +8,7 @@
       <h3 class="card-title">Categories</h3>
 
     </div>
-</div>
+
     <div class="card-body p-0">
         <div class="container-fluid">
             @if (session('success'))
@@ -52,10 +52,6 @@
                         @method('DELETE')
                         <button  class="delete-btn btn btn-danger btn-sm" type="submit"><i class="fas fa-trash mr-2"></i>Delete</button>
                       </form>
-                      {{-- <a class="btn btn-danger btn-sm" href="#">
-                          <i class="fas fa-trash"></i>
-                          Delete
-                      </a> --}}
                   </td>
               </tr>
               @endforeach
