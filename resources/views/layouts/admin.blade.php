@@ -78,7 +78,7 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-folder-open"></i>
               <p>
                 Blog
                 <i class="fas fa-angle-left right"></i>
@@ -101,22 +101,22 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
-                Categories
-                <i class="right fas fa-angle-left"></i>
-              </p>
+            <a href="" class="nav-link">
+                <i class="nav-icon fas fa-align-left"></i>
+                <p>
+                    Category
+                    <i class="right fas fa-angle-left"></i>
+                </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
+                <a  href="{{ route('category.index') }}" class="nav-link">
                   <i class="far nav-icon"></i>
                   <p>All categories</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
+                <a href="{{ route('category.create') }}" class="nav-link">
                   <i class="far nav-icon"></i>
                   <p>Add category</p>
                 </a>
