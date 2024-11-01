@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Create category')
+@section('title','Edit category')
 
 @section('content')
 
@@ -12,7 +12,7 @@
           <!-- general form elements -->
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Create caltegory</h3>
+              <h3 class="card-title">Edit caltegory</h3>
 
             </div>
             <div class="container-fluid">
@@ -25,25 +25,23 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="{{route('category.store')}}" method="POST">
+            <form action="{{route('category.update',$category->id)}}" method="POST">
                 @csrf
+                @method('PUT')
                 <div class="card-body">
                   <div class="form-group">
                     <label for="categryTitle">Title</label>
-                    <input type="text" class="form-control" id="categryTitle" name="title" placeholder="Categry title" required>
+                    <input type="text" value="{{$category->title}}" class="form-control" id="categryTitle" name="title" placeholder="Categry title" required>
                   </div>
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Add category</button>
+                  <button type="submit" class="btn btn-primary">Update category</button>
                 </div>
-              </form>
+            </form>
           </div>
-        </div>
-    </div>
-    </div>
+          <!-- /.card -->
 
-
-
+    <div></div></div></div>
 @endsection

@@ -5,18 +5,19 @@
 <!-- Default box -->
 <div class="card">
     <div class="card-header">
-      <h3 class="card-title">Projects</h3>
+      <h3 class="card-title">Categories</h3>
 
-      <div class="card-tools">
-        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-          <i class="fas fa-minus"></i>
-        </button>
-        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
     </div>
+</div>
     <div class="card-body p-0">
+        <div class="container-fluid">
+            @if (session('success'))
+                <div class="alert alert-success" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-check"></i>{{ session('success') }}</h4>
+                </div>
+            @endif
+        </div>
       <table class="table table-striped projects">
           <thead>
               <tr>
@@ -26,33 +27,35 @@
                   <th>
                       Title
                   </th>
-                  <th  style="width: 20%">Updated</th>
-                  <th style="width: 15%">
+                  <th  style="width: 20%"  class="text-center">Updated</th>
+                  <th style="width: 15%"  class="text-center">
                     Actions
                   </th>
               </tr>
           </thead>
           <tbody>
             @foreach ( $categories as $category )
-
-
               <tr>
                   <td>
                       {{$category->id}}
                   </td>
                   <td>{{$category->title}}</td>
-                  <td>{{$category->updated_at}}</td>
+                  <td  class="text-center">{{$category->updated_at}}</td>
                   <td class="project-actions text-right">
-                      <a class="btn btn-info btn-sm" href="#">
+                      <a href="{{route('category.edit',$category->id)}}" class="btn btn-info btn-sm">
                           <i class="fas fa-pencil-alt">
                           </i>
                           Edit
                       </a>
-                      <a class="btn btn-danger btn-sm" href="#">
-                          <i class="fas fa-trash">
-                          </i>
+                      <form class="d-sm-inline-block" action="{{route('category.destroy',$category->id)}}" method="POST" >
+                        @csrf
+                        @method('DELETE')
+                        <button  class="delete-btn btn btn-danger btn-sm" type="submit"><i class="fas fa-trash mr-2"></i>Delete</button>
+                      </form>
+                      {{-- <a class="btn btn-danger btn-sm" href="#">
+                          <i class="fas fa-trash"></i>
                           Delete
-                      </a>
+                      </a> --}}
                   </td>
               </tr>
               @endforeach
