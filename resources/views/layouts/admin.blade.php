@@ -25,6 +25,8 @@
   <link rel="stylesheet" href="/admin/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="/admin/plugins/summernote/summernote-bs4.min.css">
+  <link href="/admin/dist/css/colorbox.css" rel="stylesheet">
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -86,13 +88,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a href="{{route('post.index')}}" class="nav-link">
                   <i class="far nav-icon"></i>
                   <p>All articles</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                <a href="{{route('post.create')}}" class="nav-link">
                   <i class="far nav-icon"></i>
                   <p>Add article</p>
                 </a>
@@ -186,6 +188,11 @@
 <script src="/admin/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/admin/dist/js/pages/dashboard.js"></script>
-<script src="/admin/admin.js"></script>
+<script type="text/javascript" src="/admin/dist/js/jquery.colorbox-min.js"></script>
+<script type="text/javascript" src="/packages/barryvdh/elfinder/js/standalonepopup.js"></script>
+<script src="https://cdn.tiny.cloud/1/{{config('custom.tiny_mce_key')}}/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+
+<script src="/admin/app.js"></script>
+
 </body>
 </html>

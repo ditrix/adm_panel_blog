@@ -1,3 +1,5 @@
+{{-- views/admin/category/create  --}}
+
 @extends('layouts.admin')
 @section('title','Create category')
 
