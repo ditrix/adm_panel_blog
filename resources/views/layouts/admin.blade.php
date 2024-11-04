@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="/admin/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="/admin/plugins/summernote/summernote-bs4.min.css">
+  {{-- <link rel="stylesheet" href="/css/app.css"> --}}
   <link href="/admin/dist/css/colorbox.css" rel="stylesheet">
 
 </head>

@@ -10,5 +10,5 @@ $(document).ready(function() {
 
 });
 tinymce.init({
-      selector: '#postText'
+   selector: '.post_Text'
 });

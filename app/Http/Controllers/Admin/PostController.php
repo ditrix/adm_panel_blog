@@ -16,7 +16,12 @@ class PostController extends Controller
      */
     public function index()
     {
-        dd('index');
+       $posts = Post::orderBy('created_at','desc')->get();
+       $categories = Category::orderBy('created_at', 'desc')->get();
+       return view('admin.post.index',[
+        'posts' => $posts,
+        'categories' => $categories
+        ]);
     }
 
     /**
@@ -41,7 +46,14 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = new Post();
+        $post->title = $request->title;
+        $post->text = $request->text;
+        $post->cat_id = $request->cat_id;
+        $post->img = $request->img;
+        $post->save();
+
+        return redirect()->back()->withSuccess('successfuly added');
     }
 
     /**
@@ -63,7 +75,12 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        dd('edit');
+        $categories = Category::orderBy('created_at','desc')->get();
+
+        return view('admin.post.edit',[
+            'categories' => $categories,
+            'post'  => $post
+        ]);
     }
 
     /**
@@ -75,7 +92,13 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $post->title = $request->title;
+        $post->text = $request->text;
+        $post->cat_id = $request->cat_id;
+        $post->img = $request->img;
+        $post->save();
+
+        return redirect()->back()->withSuccess('successfuly updated');
     }
 
     /**
@@ -86,6 +109,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->back()->withSuccess('successfuly deleted');
     }
 }
